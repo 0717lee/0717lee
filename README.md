@@ -23,7 +23,21 @@ I focus on **AI agent runtimes and tooling ecosystems**, and I enjoy turning LLM
 
 ## 精选项目 · Selected Work
 
-### AI Agent 生态 · Agent Ecosystem
+| 项目 | 简介 |
+| :-- | :-- |
+| [OSS-Maintainer-Assistant](https://github.com/0717lee/OSS-Maintainer-Assistant) | 多智能体助手，帮开源维护者对抗 AI slop：分诊、查重、可解释评审 · A multi-agent assistant fighting AI slop for OSS maintainers |
+| [WenDao 古籍智解](https://github.com/0717lee/WenDao) | AI 古籍深度阅读平台：100 部公共版权古籍、逐句精讲、RAG 问答与竖排 OCR · An AI deep-reading platform for Chinese classics |
+| [collabboard](https://github.com/0717lee/collabboard) | 实时协作白板：角色化共享、版本快照、在线聊天与 ECharts 嵌入 · Real-time collaborative whiteboard |
+| [pixelforge](https://github.com/0717lee/pixelforge) | 纯 MoonBit 图像处理库：26 种滤镜、形态学运算与多格式编解码，零依赖 · A pure-MoonBit image-processing library, zero dependencies |
+| [lumina-flow](https://github.com/0717lee/lumina-flow) | 无限画布上的空间思维导图：专注模式、自动布局与多白板工作区 · Spatial mind-mapping on an infinite canvas |
+| [omnili](https://omnili.site) | 杂志编辑风的个人作品集站点 · My editorial-magazine-style portfolio |
+
+---
+
+## 开源贡献 · Open Source Contributions
+
+以贡献者身份参与 sandbaseai 开源生态，以下仓库为上游项目的 fork。
+Contributed to the sandbaseai open-source ecosystem; the repos below are forks of upstream.
 
 | 项目 | 简介 |
 | :-- | :-- |
@@ -31,17 +45,6 @@ I focus on **AI agent runtimes and tooling ecosystems**, and I enjoy turning LLM
 | [dsh-plugin-store](https://github.com/0717lee/dsh-plugin-store) | DeepSeek Harness 原生插件市场：发现、筛选、安装与管理 4000+ 社区插件 · Native plugin marketplace with 4,000+ community packages |
 | [awesome-agent-runtime](https://github.com/0717lee/awesome-agent-runtime) | 500 个 Agent 运行时、沙箱、浏览器代理与工具协议的全景图 · A curated landscape of 500 agent runtimes & tool protocols |
 | [deepseek-harness-handbook](https://github.com/0717lee/deepseek-harness-handbook) | DeepSeek Harness 独立手册：代理、插件、安全与故障排查 · An independent, source-backed handbook |
-| [OSS-Maintainer-Assistant](https://github.com/0717lee/OSS-Maintainer-Assistant) | 多智能体助手，帮开源维护者对抗 AI slop：分诊、查重、可解释评审 · A multi-agent assistant fighting AI slop for OSS maintainers |
-
-### 产品与实验 · Products & Experiments
-
-| 项目 | 简介 |
-| :-- | :-- |
-| [WenDao 古籍智解](https://github.com/0717lee/WenDao) | AI 古籍深度阅读平台：100 部公共版权古籍、逐句精讲、RAG 问答与竖排 OCR · An AI deep-reading platform for Chinese classics |
-| [collabboard](https://github.com/0717lee/collabboard) | 实时协作白板：角色化共享、版本快照、在线聊天与 ECharts 嵌入 · Real-time collaborative whiteboard |
-| [pixelforge](https://github.com/0717lee/pixelforge) | 纯 MoonBit 图像处理库：26 种滤镜、形态学运算与多格式编解码，零依赖 · A pure-MoonBit image-processing library, zero dependencies |
-| [lumina-flow](https://github.com/0717lee/lumina-flow) | 无限画布上的空间思维导图：专注模式、自动布局与多白板工作区 · Spatial mind-mapping on an infinite canvas |
-| [omnili](https://omnili.site) | 杂志编辑风的个人作品集站点 · My editorial-magazine-style portfolio |
 
 ---
 
