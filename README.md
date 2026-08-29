@@ -1,6 +1,6 @@
 <div align="center">
 
-# Fengmin Li · 谦友Lee
+# Fengmin Li
 
 **AI Agent 与全栈开发者 — AI Agent & Full-Stack Developer**
 
