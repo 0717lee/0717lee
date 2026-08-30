@@ -36,8 +36,29 @@ I focus on **AI agent runtimes and tooling ecosystems**, and I enjoy turning LLM
 
 ## 开源贡献 · Open Source Contributions
 
-以贡献者身份参与 sandbaseai 开源生态，以下仓库为上游项目的 fork。
-Contributed to the sandbaseai open-source ecosystem; the repos below are forks of upstream.
+以贡献者身份参与多个开源生态。主页上的 sandbaseai 系列仓库为上游项目的 fork，非主导作品。
+Contributions to upstream projects across several ecosystems. The sandbaseai repos on this profile are forks of upstream, not primary works.
+
+**已合入上游 · Merged upstream**
+
+| 项目 | 贡献 |
+| :-- | :-- |
+| [moonbitlang/core](https://github.com/moonbitlang/core/pull/4165) | MoonBit 标准库：为 builtin 方法补齐文档与可执行示例 · Expanding documentation for the standard library's builtins |
+| [Wuzhimaotao-frontend](https://github.com/sanxing268/Wuzhimaotao-frontend) | IoT 监控平台前端，18 个 PR 全部合入：设备管理、告警中心、动态指标渲染 · 18 merged PRs: device admin, alarm center, dynamic metric rendering |
+| [rivus-product](https://github.com/rivusglobal/rivus-product) | 规格驱动的产品功能，11 个 PR 合入：Stripe 计费、MCP 用量图表、告警交互 · 11 merged PRs: Stripe billing, usage charts, alert UX |
+| [sandbase-harness](https://github.com/sandbaseai/sandbase-harness/pull/75) 等 | 修复与文档合入 sandbase-harness、deepseek-harness-handbook、dshpluginleaderboard 上游 · Fixes and docs merged across the sandbaseai ecosystem |
+
+**评审中 · Under review**
+
+| 项目 | 贡献 |
+| :-- | :-- |
+| [modelcontextprotocol/typescript-sdk](https://github.com/modelcontextprotocol/typescript-sdk/pull/2741) | 修复 listTools() 自动分页遇重复游标静默截断 · Fix silent truncation in the list auto-aggregate walk |
+| [bytedance/deer-flow](https://github.com/bytedance/deer-flow/pull/5101) | 凭据注入防护（[#5097](https://github.com/bytedance/deer-flow/pull/5097)）；RunManager 终态记录回收（#5101）· Credential-injection guard; terminal-run record eviction |
+| [moonbitlang/openseek](https://github.com/moonbitlang/openseek/pull/1132) | 侧栏拖拽调宽（[#1124](https://github.com/moonbitlang/openseek/pull/1124)）；浏览器标签地址栏重新同步（#1132）· Sidebar resize by drag; browser tab URL re-sync |
+| [HKUDS/nanobot](https://github.com/HKUDS/nanobot/pull/5602) | WebUI 回合完成提示音 · Completion notification sound |
+| [IBM/mcp-context-forge](https://github.com/IBM/mcp-context-forge/pull/6475) | 在工具详情 API 接线 include_metrics · Wire include_metrics through the tool detail API |
+
+**生态 fork 参与 · Ecosystem forks**
 
 | 项目 | 简介 |
 | :-- | :-- |
