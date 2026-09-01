@@ -43,7 +43,8 @@ Contributions to upstream projects across several ecosystems. The sandbaseai rep
 
 | 项目 | 贡献 |
 | :-- | :-- |
-| [moonbitlang/core](https://github.com/moonbitlang/core/pull/4165) | MoonBit 标准库：为 builtin 方法补齐文档与可执行示例（[#4165](https://github.com/moonbitlang/core/pull/4165)、[#4166](https://github.com/moonbitlang/core/pull/4166) 两批均已合入） · Expanding documentation for the standard library's builtins |
+| [moonbitlang/core](https://github.com/moonbitlang/core/pull/4165) | MoonBit 标准库：为 builtin 方法补齐文档与可执行示例（[#4165](https://github.com/moonbitlang/core/pull/4165)、[#4166](https://github.com/moonbitlang/core/pull/4166)、[#4181](https://github.com/moonbitlang/core/pull/4181) 三批均已合入） · Expanding documentation for the standard library's builtins |
+| [moonbitlang/openseek](https://github.com/moonbitlang/openseek/pull/1132) | 修复桌面端浏览器标签复用不导航导致的地址栏与页面脱节 · Fix stale page on browser-tab reuse in the desktop app |
 | [Wuzhimaotao-frontend](https://github.com/sanxing268/Wuzhimaotao-frontend) | IoT 监控平台前端，18 个 PR 全部合入：设备管理、告警中心、动态指标渲染 · 18 merged PRs: device admin, alarm center, dynamic metric rendering |
 | [rivus-product](https://github.com/rivusglobal/rivus-product) | 规格驱动的产品功能，11 个 PR 合入：Stripe 计费、MCP 用量图表、告警交互 · 11 merged PRs: Stripe billing, usage charts, alert UX |
 | [sandbase-harness](https://github.com/sandbaseai/sandbase-harness/pull/75) 等 | 修复与文档合入 sandbase-harness、deepseek-harness-handbook、dshpluginleaderboard 上游 · Fixes and docs merged across the sandbaseai ecosystem |
@@ -53,8 +54,8 @@ Contributions to upstream projects across several ecosystems. The sandbaseai rep
 | 项目 | 贡献 |
 | :-- | :-- |
 | [modelcontextprotocol/typescript-sdk](https://github.com/modelcontextprotocol/typescript-sdk/pull/2741) | 修复 listTools() 自动分页遇重复游标静默截断 · Fix silent truncation in the list auto-aggregate walk |
-| [bytedance/deer-flow](https://github.com/bytedance/deer-flow/pull/5101) | 凭据注入防护（[#5097](https://github.com/bytedance/deer-flow/pull/5097)）；RunManager 终态记录回收（#5101）· Credential-injection guard; terminal-run record eviction |
-| [moonbitlang/openseek](https://github.com/moonbitlang/openseek/pull/1132) | 侧栏拖拽调宽（[#1124](https://github.com/moonbitlang/openseek/pull/1124)）；浏览器标签地址栏重新同步（#1132）· Sidebar resize by drag; browser tab URL re-sync |
+| [bytedance/deer-flow](https://github.com/bytedance/deer-flow/pull/5101) | RunManager 终态记录回收与幂等重用防泄漏 · Terminal-run record eviction with leak-free idempotent reuse |
+| [moonbitlang/openseek](https://github.com/moonbitlang/openseek/pull/1124) | 侧栏拖拽调宽（[#1124](https://github.com/moonbitlang/openseek/pull/1124)）；markdown diff 高亮（[#1162](https://github.com/moonbitlang/openseek/pull/1162)）；transcript 同步骤 prose 先于工具活动（[#1163](https://github.com/moonbitlang/openseek/pull/1163)） · Sidebar resize; markdown diff highlighting; prose-before-activity ordering |
 | [HKUDS/nanobot](https://github.com/HKUDS/nanobot/pull/5602) | WebUI 回合完成提示音 · Completion notification sound |
 | [IBM/mcp-context-forge](https://github.com/IBM/mcp-context-forge/pull/6475) | 工具详情 API 接线 include_metrics（[#6475](https://github.com/IBM/mcp-context-forge/pull/6475)）；Observability 捕获 user_email（[#6478](https://github.com/IBM/mcp-context-forge/pull/6478)）；更新网关时保留凭据（[#6479](https://github.com/IBM/mcp-context-forge/pull/6479)） · Wire include_metrics; capture user_email on traces; preserve gateway auth on partial updates |
 
