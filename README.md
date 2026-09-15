@@ -56,7 +56,9 @@ Contributions to upstream projects across several ecosystems. The sandbaseai rep
 | 项目 | 贡献 |
 | :-- | :-- |
 | [modelcontextprotocol/typescript-sdk](https://github.com/modelcontextprotocol/typescript-sdk/pull/2741) | 1 个 PR：修复 listTools() 自动分页遇重复游标静默截断 · Silent truncation in the list auto-aggregate walk |
+| [bytedance/deer-flow](https://github.com/bytedance/deer-flow/pull/5453) | 1 个 PR：内存模式下终态清理不再抹掉运行历史 · Keep store-less run history through terminal cleanup |
 | [moonbitlang/openseek](https://github.com/moonbitlang/openseek/pull/1162) | 1 个 PR：markdown diff 高亮修复 · Markdown diff highlighting |
+| [moonbit-community/proton](https://github.com/moonbit-community/proton/pull/300) | 1 个 PR：Windows `WM_DPICHANGED` 过渡的回归覆盖 · Regression coverage for a WM_DPICHANGED transition |
 | [HKUDS/nanobot](https://github.com/HKUDS/nanobot/pull/5602) | 1 个 PR：WebUI 回合完成提示音 · Completion notification sound |
 | [IBM/mcp-context-forge](https://github.com/IBM/mcp-context-forge/pull/6475) | 4 个 PR：include_metrics 接线、trace 捕获 user_email、更新网关时保留凭据、模板内省容错 · Wire include_metrics; capture user_email on traces; preserve gateway auth; tolerate invalid templates in introspection |
 
