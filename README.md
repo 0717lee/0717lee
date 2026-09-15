@@ -45,7 +45,7 @@ Contributions to upstream projects across several ecosystems. The sandbaseai rep
 | :-- | :-- |
 | [moonbitlang/core](https://github.com/moonbitlang/core/pull/4165) | MoonBit 标准库：为 builtin 方法补齐文档与可执行示例（[#4165](https://github.com/moonbitlang/core/pull/4165)、[#4166](https://github.com/moonbitlang/core/pull/4166)、[#4181](https://github.com/moonbitlang/core/pull/4181) 三批均已合入） · Expanding documentation for the standard library's builtins |
 | [moonbitlang/openseek](https://github.com/moonbitlang/openseek/pull/1132) | 桌面端修复：浏览器标签复用不导航导致的地址栏与页面脱节（[#1132](https://github.com/moonbitlang/openseek/pull/1132)）、侧栏拖拽调宽（[#1124](https://github.com/moonbitlang/openseek/pull/1124)） · Desktop fixes: stale page on tab reuse, draggable sidebar width |
-| [moonbit-community/proton](https://github.com/moonbit-community/proton/issues/287) | Windows 高 DPI 窗口尺寸与 ICO 打包：[tracking-size 测试以 co-author 合入](https://github.com/moonbit-community/proton/pull/293)，并独立定位了 #287 的全部 Win32 尺寸边界与 #289 的 prebuild 架构限制 · Windows high-DPI sizing and icon packaging: co-authored the tracking-size coverage, independently scoped the Win32 boundaries and the prebuild constraint |
+| [moonbit-community/proton](https://github.com/moonbit-community/proton/issues/287) | Windows 高 DPI 与 ICO 打包：[boundary 分析以 co-author 合入](https://github.com/moonbit-community/proton/pull/293)、[`WM_DPICHANGED` 过渡测试合入](https://github.com/moonbit-community/proton/pull/300) · Windows high-DPI and icon packaging: co-authored boundary analysis, merged WM_DPICHANGED transition test |
 | [contextforge-org/contextforge-web-ui](https://github.com/contextforge-org/contextforge-web-ui/pull/106) | Web 控制台：暴露组件步骤区分"加载失败"与"真实为空"，附重试 · Web console: tell failed component loads from empty lists, with retry |
 | [Wuzhimaotao-frontend](https://github.com/sanxing268/Wuzhimaotao-frontend) | IoT 监控平台前端，18 个 PR 全部合入：设备管理、告警中心、动态指标渲染 · 18 merged PRs: device admin, alarm center, dynamic metric rendering |
 | [rivus-product](https://github.com/rivusglobal/rivus-product) | 规格驱动的产品功能，12 个 PR 合入：Stripe 计费、MCP 用量图表、告警交互 · 12 merged PRs: Stripe billing, usage charts, alert UX |
@@ -58,7 +58,6 @@ Contributions to upstream projects across several ecosystems. The sandbaseai rep
 | [modelcontextprotocol/typescript-sdk](https://github.com/modelcontextprotocol/typescript-sdk/pull/2741) | 1 个 PR：修复 listTools() 自动分页遇重复游标静默截断 · Silent truncation in the list auto-aggregate walk |
 | [bytedance/deer-flow](https://github.com/bytedance/deer-flow/pull/5453) | 1 个 PR：内存模式下终态清理不再抹掉运行历史 · Keep store-less run history through terminal cleanup |
 | [moonbitlang/openseek](https://github.com/moonbitlang/openseek/pull/1162) | 1 个 PR：markdown diff 高亮修复 · Markdown diff highlighting |
-| [moonbit-community/proton](https://github.com/moonbit-community/proton/pull/300) | 1 个 PR：Windows `WM_DPICHANGED` 过渡的回归覆盖 · Regression coverage for a WM_DPICHANGED transition |
 | [HKUDS/nanobot](https://github.com/HKUDS/nanobot/pull/5602) | 1 个 PR：WebUI 回合完成提示音 · Completion notification sound |
 | [IBM/mcp-context-forge](https://github.com/IBM/mcp-context-forge/pull/6475) | 4 个 PR：include_metrics 接线、trace 捕获 user_email、更新网关时保留凭据、模板内省容错 · Wire include_metrics; capture user_email on traces; preserve gateway auth; tolerate invalid templates in introspection |
 
