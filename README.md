@@ -1,97 +1,65 @@
-<div align="center">
-
 # Fengmin Li
 
-**AI Agent 与全栈开发者 — AI Agent & Full-Stack Developer**
+图像处理、WebAssembly 宿主接口与开发者工具。主要使用 **MoonBit / TypeScript / Python**。
 
-构建本地优先的智能体，和有温度的全栈产品。
-Building local-first agents and thoughtful full-stack products.
+[个人站点](https://omnili.site) · [联系我](mailto:2080291162@qq.com) · [开源贡献](#开源贡献)
 
-[Portfolio](https://omnili.site) · [Email](mailto:2080291162@qq.com) · [Repositories](https://github.com/0717lee?tab=repositories)
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/chiikawa-engineering-dark.gif" />
+    <img src="./assets/chiikawa-engineering.gif" width="960" alt="图像处理、运行时接口、维护工具三个工程方向的动态示意，八位 Chiikawa 角色作为边角注解。" />
+  </picture>
+</p>
 
-</div>
+## 主要项目
 
----
+### [PixelForge](https://github.com/0717lee/pixelforge)
 
-## 关于 · About
+用 MoonBit 实现滤镜与图像编解码，提供可以在浏览器里试用的 Playground。
 
-我专注于 **AI Agent 运行时与工具生态**，也热衷于把大模型能力落地为真实可用的产品——从实时协作白板，到古籍智能阅读平台。我相信好的工程是克制的：本地优先、零依赖、体验为先。
+<code>MoonBit</code> · <code>Image processing</code>
 
-I focus on **AI agent runtimes and tooling ecosystems**, and I enjoy turning LLM capabilities into real, usable products — from real-time collaborative whiteboards to an AI reading platform for Chinese classics. I believe good engineering is restrained: local-first, zero-dependency, experience above all.
+### [MoonHostABI](https://github.com/0717lee/moonhostabi)
 
----
+面向 Wasm-GC 宿主接口的检查与适配工具：识别编译结果中的接口变化，并生成 TypeScript 适配器，让跨运行时兼容性可以被检查。
 
-## 精选项目 · Selected Work
+<code>MoonBit</code> · <code>WebAssembly</code>
 
-| 项目 | 简介 |
+### [OSS Maintainer Assistant](https://github.com/0717lee/OSS-Maintainer-Assistant)
+
+面向开源维护流程的分诊、查重与评审辅助工具，把需要维护者判断的问题更早地整理出来。
+
+<code>Python</code> · <code>LangGraph</code>
+
+## 其他项目
+
+- [WenDao · 古籍智解](https://github.com/0717lee/WenDao)：古籍逐句精讲、问答与竖排 OCR。
+- [collabboard](https://github.com/0717lee/collabboard)：支持实时绘画、讨论与版本回溯的协作白板。
+- [Lumina Flow](https://github.com/0717lee/lumina-flow)：提供空间思维导图、自动布局与专注模式的无限画布。
+
+## 开源贡献
+
+以下记录均为已合入的上游改动：
+
+<details>
+<summary>查看 6 条已合入记录</summary>
+
+| 项目 | 改动 |
 | :-- | :-- |
-| [OSS-Maintainer-Assistant](https://github.com/0717lee/OSS-Maintainer-Assistant) | 多智能体助手，帮开源维护者对抗 AI slop：分诊、查重、可解释评审 · A multi-agent assistant fighting AI slop for OSS maintainers |
-| [WenDao 古籍智解](https://github.com/0717lee/WenDao) | AI 古籍深度阅读平台：100 部公共版权古籍、逐句精讲、RAG 问答与竖排 OCR · An AI deep-reading platform for Chinese classics |
-| [collabboard](https://github.com/0717lee/collabboard) | 实时协作白板：角色化共享、版本快照、在线聊天与 ECharts 嵌入 · Real-time collaborative whiteboard |
-| [pixelforge](https://github.com/0717lee/pixelforge) | 纯 MoonBit 图像处理库：26 种滤镜、形态学运算与多格式编解码，零依赖 · A pure-MoonBit image-processing library, zero dependencies |
-| [lumina-flow](https://github.com/0717lee/lumina-flow) | 无限画布上的空间思维导图：专注模式、自动布局与多白板工作区 · Spatial mind-mapping on an infinite canvas |
-| [omnili](https://omnili.site) | 杂志编辑风的个人作品集站点 · My editorial-magazine-style portfolio |
+| [MoonBit Core #4181](https://github.com/moonbitlang/core/pull/4181) | 标准库文档与可执行示例 |
+| [OpenSeek #1132](https://github.com/moonbitlang/openseek/pull/1132) | 修复浏览器复用标签时地址与页面脱节 |
+| [Proton #300](https://github.com/moonbit-community/proton/pull/300) | Windows 高 DPI 窗口过渡的回归测试 |
+| [DeerFlow #5453](https://github.com/bytedance/deer-flow/pull/5453) | 保留内存模式下的运行历史 |
+| [nanobot #5602](https://github.com/HKUDS/nanobot/pull/5602) | WebUI 回合完成提示音 |
+| [ContextForge Web UI #106](https://github.com/contextforge-org/contextforge-web-ui/pull/106) | 区分加载失败与空列表，支持重试 |
 
----
+</details>
 
-## 开源贡献 · Open Source Contributions
+[全部合入记录](https://github.com/search?q=is%3Apr+author%3A0717lee+is%3Amerged&type=pullrequests) · [正在推进的 PR](https://github.com/search?q=is%3Apr+author%3A0717lee+is%3Aopen&type=pullrequests)
 
-以贡献者身份参与多个开源生态。主页上的 sandbaseai 系列仓库为上游项目的 fork，非主导作品。
-Contributions to upstream projects across several ecosystems. The sandbaseai repos on this profile are forks of upstream, not primary works.
+<details>
+<summary>生态 fork</summary>
 
-**已合入上游 · Merged upstream**
+参与过 [sandbase-harness](https://github.com/sandbaseai/sandbase-harness)、[dsh-plugin-store](https://github.com/sandbaseai/dsh-plugin-store)、[awesome-agent-runtime](https://github.com/sandbaseai/awesome-agent-runtime) 和 [deepseek-harness-handbook](https://github.com/sandbaseai/deepseek-harness-handbook) 生态；个人账号下的对应仓库是上游 fork。
 
-| 项目 | 贡献 |
-| :-- | :-- |
-| [moonbitlang/core](https://github.com/moonbitlang/core/pull/4165) | MoonBit 标准库：为 builtin 方法补齐文档与可执行示例（[#4165](https://github.com/moonbitlang/core/pull/4165)、[#4166](https://github.com/moonbitlang/core/pull/4166)、[#4181](https://github.com/moonbitlang/core/pull/4181) 三批均已合入） · Expanding documentation for the standard library's builtins |
-| [moonbitlang/openseek](https://github.com/moonbitlang/openseek/pull/1132) | 桌面端修复：浏览器标签复用不导航导致的地址栏与页面脱节（[#1132](https://github.com/moonbitlang/openseek/pull/1132)）、侧栏拖拽调宽（[#1124](https://github.com/moonbitlang/openseek/pull/1124)） · Desktop fixes: stale page on tab reuse, draggable sidebar width |
-| [moonbit-community/proton](https://github.com/moonbit-community/proton/issues/287) | Windows 高 DPI 与 ICO 打包：[boundary 分析以 co-author 合入](https://github.com/moonbit-community/proton/pull/293)、[`WM_DPICHANGED` 过渡测试合入](https://github.com/moonbit-community/proton/pull/300) · Windows high-DPI and icon packaging: co-authored boundary analysis, merged WM_DPICHANGED transition test |
-| [contextforge-org/contextforge-web-ui](https://github.com/contextforge-org/contextforge-web-ui/pull/106) | Web 控制台：暴露组件步骤区分"加载失败"与"真实为空"，附重试 · Web console: tell failed component loads from empty lists, with retry |
-| [Wuzhimaotao-frontend](https://github.com/sanxing268/Wuzhimaotao-frontend) | IoT 监控平台前端，18 个 PR 全部合入：设备管理、告警中心、动态指标渲染 · 18 merged PRs: device admin, alarm center, dynamic metric rendering |
-| [rivus-product](https://github.com/rivusglobal/rivus-product) | 规格驱动的产品功能，12 个 PR 合入：Stripe 计费、MCP 用量图表、告警交互 · 12 merged PRs: Stripe billing, usage charts, alert UX |
-| [sandbase-harness](https://github.com/sandbaseai/sandbase-harness/pull/75) 等 | 修复与文档合入 sandbase-harness、deepseek-harness-handbook、dshpluginleaderboard 上游 · Fixes and docs merged across the sandbaseai ecosystem |
-
-**评审中 · Under review**
-
-| 项目 | 贡献 |
-| :-- | :-- |
-| [modelcontextprotocol/typescript-sdk](https://github.com/modelcontextprotocol/typescript-sdk/pull/2741) | 1 个 PR：修复 listTools() 自动分页遇重复游标静默截断 · Silent truncation in the list auto-aggregate walk |
-| [bytedance/deer-flow](https://github.com/bytedance/deer-flow/pull/5453) | 1 个 PR：内存模式下终态清理不再抹掉运行历史 · Keep store-less run history through terminal cleanup |
-| [moonbitlang/openseek](https://github.com/moonbitlang/openseek/pull/1162) | 1 个 PR：markdown diff 高亮修复 · Markdown diff highlighting |
-| [HKUDS/nanobot](https://github.com/HKUDS/nanobot/pull/5602) | 1 个 PR：WebUI 回合完成提示音 · Completion notification sound |
-| [IBM/mcp-context-forge](https://github.com/IBM/mcp-context-forge/pull/6475) | 4 个 PR：include_metrics 接线、trace 捕获 user_email、更新网关时保留凭据、模板内省容错 · Wire include_metrics; capture user_email on traces; preserve gateway auth; tolerate invalid templates in introspection |
-
-**生态 fork 参与 · Ecosystem forks**
-
-| 项目 | 简介 |
-| :-- | :-- |
-| [sandbase-harness](https://github.com/0717lee/sandbase-harness) | 本地优先的 AI Agent 运行时：沙箱会话、MCP 工具、记忆、凭证与审计回放 · Local-first agent runtime with sandboxed sessions, MCP tools, memory, credentials & audit replay |
-| [dsh-plugin-store](https://github.com/0717lee/dsh-plugin-store) | DeepSeek Harness 原生插件市场：发现、筛选、安装与管理 4000+ 社区插件 · Native plugin marketplace with 4,000+ community packages |
-| [awesome-agent-runtime](https://github.com/0717lee/awesome-agent-runtime) | 500 个 Agent 运行时、沙箱、浏览器代理与工具协议的全景图 · A curated landscape of 500 agent runtimes & tool protocols |
-| [deepseek-harness-handbook](https://github.com/0717lee/deepseek-harness-handbook) | DeepSeek Harness 独立手册：代理、插件、安全与故障排查 · An independent, source-backed handbook |
-
----
-
-## 技术栈 · Stack
-
-**语言 Languages** — TypeScript · Python · MoonBit · JavaScript
-
-**前端 Frontend** — React 19 · Next.js · Tailwind CSS v4 · Fabric.js
-
-**AI 与智能体 AI & Agents** — MCP · LangGraph · RAG · OpenAI-compatible APIs
-
-**后端 Backend** — Node.js · FastAPI · Express · Supabase · PostgreSQL
-
----
-
-## 联系 · Contact
-
-- **邮箱 Email** — [2080291162@qq.com](mailto:2080291162@qq.com)
-- **作品集 Portfolio** — [omnili.site](https://omnili.site)
-
-<div align="center">
-
-*克制的工程，真诚的产品。*
-*Restrained engineering, sincere products.*
-
-</div>
+</details>
