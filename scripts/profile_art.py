@@ -27,14 +27,6 @@ def sprite(index,center_x,baseline,face_width,motion):
 def engineering(name, definitions, clips):
     dark = name.endswith("-dark")
     ink, muted, line = ("#e7ebe8", "#a9b8b1", "#52625c") if dark else ("#33463e", "#687f73", "#c6d4cd")
-    pixels = "".join(
-        f'<rect x="{48+col*14}" y="{80+row*14}" width="10" height="10" rx="1" fill="{color}"/>'
-        for row, colors in enumerate([
-            ["#b1cfc0", "#b1cfc0", "#dfc9b2"],
-            ["#b1cfc0", "#6b9a87", "#dfc9b2"],
-            ["#acc4d2", "#6b9a87", "#acc4d2"],
-        ]) for col, color in enumerate(colors)
-    )
     people = (
         sprite(0,250,166,37,"working")
         + sprite(7,30,180,24,"reading-note")
@@ -46,7 +38,7 @@ def engineering(name, definitions, clips):
         + sprite(10,641,217,24,"reading-note")
     )
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="960" height="224" viewBox="0 0 960 224" fill="none" role="img" aria-labelledby="title">
-<title id="title">Engineering notes — image processing, runtime interfaces and maintainer tools</title>
+<title id="title">Frontend interfaces, AI agents and applications</title>
 <defs>{definitions}{clips}</defs>
 <style>
 text {{ font-family: "Microsoft YaHei", sans-serif; fill: {ink}; }}
@@ -65,25 +57,25 @@ text {{ font-family: "Microsoft YaHei", sans-serif; fill: {ink}; }}
 @keyframes signal {{ 0% {{ transform: translateX(0); opacity: 0; }} 15%,75% {{ opacity: 1; }} 90%,100% {{ opacity: 0; }} 100% {{ transform: translateX(47px); }} }}
 @keyframes cursor {{ 0%,100% {{ opacity: 1; }} 50% {{ opacity: 0; }} }}
 </style>
-<text class="meta" x="28" y="26">ENGINEERING NOTES</text>
+<text class="meta" x="28" y="26">FRONTEND / AI AGENTS</text>
 <path d="M208 22H932" stroke="{line}"/>
 <g stroke="{line}" stroke-width="1.3">
 <path d="M30 57H288V153H30ZM350 57H608V153H350ZM670 57H928V153H670"/>
 <path d="M294 104H344m270 0h50"/>
 </g>
 <g class="signal"><rect x="296" y="101" width="6" height="6" fill="{muted}"/><rect x="616" y="101" width="6" height="6" fill="{muted}"/></g>
-{pixels}
-<text class="label" x="107" y="99">图像处理</text>
-<text class="detail" x="107" y="125">pixels / codecs</text>
-<g stroke="{muted}" stroke-width="1.7" stroke-linejoin="round"><path d="M385 83l-14 14 14 14m29-28 14 14-14 14m-8-31-13 37"/></g>
-<text class="label" x="447" y="99">运行时接口</text>
-<text class="detail" x="447" y="125">Wasm-GC / ABI</text>
-<g stroke="{muted}" stroke-width="1.5"><path d="M691 82h38v12h-38Zm0 19h29v12h-29Zm0 19h20v12h-20Z"/></g>
-<text class="label" x="754" y="99">维护工具</text>
-<text class="detail" x="754" y="125">triage / review</text>
-<text class="meta" x="61" y="188">01 / PIXELFORGE</text>
-<text class="meta" x="384" y="188">02 / MOONHOSTABI</text>
-<text class="meta" x="697" y="188">03 / MAINTAINER</text>
+<g stroke="{muted}" stroke-width="1.5"><rect x="46" y="80" width="43" height="37" rx="3"/><path d="M46 90H89M57 97V111M64 99H82M64 107H76"/><circle cx="52" cy="85" r="1" fill="{muted}"/><circle cx="57" cy="85" r="1" fill="{muted}"/></g>
+<text class="label" x="107" y="99">前端交互</text>
+<text class="detail" x="107" y="125">React / TypeScript</text>
+<g stroke="{muted}" stroke-width="1.7"><path d="M385 89H407M382 94L393 114M409 94L399 114"/><circle cx="380" cy="89" r="5"/><circle cx="412" cy="89" r="5"/><circle cx="396" cy="119" r="5"/></g>
+<text class="label" x="447" y="99">AI Agent</text>
+<text class="detail" x="447" y="125">LangGraph / tools</text>
+<g stroke="{muted}" stroke-width="1.5" stroke-linejoin="round"><path d="M691 87Q701 82 711 87Q721 82 731 87V121Q721 116 711 121Q701 116 691 121ZM711 87V121M697 95L706 97M697 103L706 105M716 97L725 95M716 105L725 103"/></g>
+<text class="label" x="754" y="99">AI 应用</text>
+<text class="detail" x="754" y="125">RAG / OCR</text>
+<text class="meta" x="61" y="188">01 / COLLABBOARD</text>
+<text class="meta" x="384" y="188">02 / MAINTAINER</text>
+<text class="meta" x="697" y="188">03 / WENDAO</text>
 {people}
 <path d="M28 219H290m68 0h248m70 0h256" stroke="{line}"/>
 <rect class="cursor" x="921" y="24" width="9" height="2" fill="{muted}"/>

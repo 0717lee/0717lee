@@ -1,41 +1,46 @@
 # Fengmin Li
 
-图像处理、WebAssembly 宿主接口与开发者工具。主要使用 **MoonBit / TypeScript / Python**。
+前端与 AI Agent 开发，关注交互体验、智能体工作流与 AI 应用。主要使用 **TypeScript / React / Python**。
 
 [个人站点](https://omnili.site) · [联系我](mailto:2080291162@qq.com) · [开源贡献](#开源贡献)
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./assets/chiikawa-engineering-dark.svg" />
-    <img src="./assets/chiikawa-engineering.svg" width="960" alt="图像处理、运行时接口、维护工具三个工程方向的动态示意，八位 Chiikawa 角色作为边角注解。" />
+    <img src="./assets/chiikawa-engineering.svg" width="960" alt="前端交互、AI Agent 和 AI 应用三个方向的动态示意，八位 Chiikawa 角色作为边角注解。" />
   </picture>
 </p>
 
-## 主要项目
+## 代表项目
 
-### [PixelForge](https://github.com/0717lee/pixelforge)
+### [collabboard](https://github.com/0717lee/collabboard)
 
-用 MoonBit 实现滤镜与图像编解码，提供可以在浏览器里试用的 Playground。
+实时协作白板：把绘图、多人编辑、实时光标、权限分享和版本快照放进同一块画布，支持图表嵌入与 PNG/SVG 导出。
 
-<code>MoonBit</code> · <code>Image processing</code>
-
-### [MoonHostABI](https://github.com/0717lee/moonhostabi)
-
-面向 Wasm-GC 宿主接口的检查与适配工具：识别编译结果中的接口变化，并生成 TypeScript 适配器，让跨运行时兼容性可以被检查。
-
-<code>MoonBit</code> · <code>WebAssembly</code>
+<code>React</code> · <code>TypeScript</code> · <code>Fabric.js</code> · <code>Liveblocks</code>
 
 ### [OSS Maintainer Assistant](https://github.com/0717lee/OSS-Maintainer-Assistant)
 
-面向开源维护流程的分诊、查重与评审辅助工具，把需要维护者判断的问题更早地整理出来。
+多 Agent 开源维护助手：协作完成问题分诊、查重、质量评审和回复草拟。React 工作台展示判断依据，并让维护者确认后再执行操作。
 
-<code>Python</code> · <code>LangGraph</code>
+<code>LangGraph</code> · <code>Python</code> · <code>FastAPI</code> · <code>React</code>
 
-## 其他项目
+### [WenDao · 古籍智解](https://github.com/0717lee/WenDao)
 
-- [WenDao · 古籍智解](https://github.com/0717lee/WenDao)：古籍逐句精讲、问答与竖排 OCR。
-- [collabboard](https://github.com/0717lee/collabboard)：支持实时绘画、讨论与版本回溯的协作白板。
-- [Lumina Flow](https://github.com/0717lee/lumina-flow)：提供空间思维导图、自动布局与专注模式的无限画布。
+AI 古籍阅读平台：React 对照阅读器支持渐进加载、同步滚动和逐句追问，结合原文引用式 RAG 问答与竖排 OCR。
+
+<code>React</code> · <code>TypeScript</code> · <code>FastAPI</code> · <code>RAG</code>
+
+### [Lumina Flow](https://github.com/0717lee/lumina-flow)
+
+空间思维导图：围绕无限画布设计节点编辑、自动布局、聚焦模式和键盘操作，支持本地多画布管理与搜索。
+
+<code>React Flow</code> · <code>Zustand</code> · <code>Tailwind CSS</code>
+
+## 技术探索
+
+- [PixelForge](https://github.com/0717lee/pixelforge)：MoonBit 图像处理、滤镜与编解码，配套浏览器 Playground。
+- [MoonHostABI](https://github.com/0717lee/moonhostabi)：检查 Wasm-GC 宿主接口变化，生成 TypeScript 适配器。
 
 ## 开源贡献
 
@@ -46,12 +51,12 @@
 
 | 项目 | 改动 |
 | :-- | :-- |
+| [ContextForge Web UI #106](https://github.com/contextforge-org/contextforge-web-ui/pull/106) | MCP 管理界面：区分组件加载失败与空列表，提供重试 |
+| [nanobot #5602](https://github.com/HKUDS/nanobot/pull/5602) | Agent WebUI：增加回合完成提示音 |
+| [DeerFlow #5453](https://github.com/bytedance/deer-flow/pull/5453) | Agent 运行时：保留内存模式下的运行历史 |
+| [OpenSeek #1132](https://github.com/moonbitlang/openseek/pull/1132) | 桌面浏览器：修复标签复用时地址与页面脱节 |
 | [MoonBit Core #4181](https://github.com/moonbitlang/core/pull/4181) | 标准库文档与可执行示例 |
-| [OpenSeek #1132](https://github.com/moonbitlang/openseek/pull/1132) | 修复浏览器复用标签时地址与页面脱节 |
 | [Proton #300](https://github.com/moonbit-community/proton/pull/300) | Windows 高 DPI 窗口过渡的回归测试 |
-| [DeerFlow #5453](https://github.com/bytedance/deer-flow/pull/5453) | 保留内存模式下的运行历史 |
-| [nanobot #5602](https://github.com/HKUDS/nanobot/pull/5602) | WebUI 回合完成提示音 |
-| [ContextForge Web UI #106](https://github.com/contextforge-org/contextforge-web-ui/pull/106) | 区分加载失败与空列表，支持重试 |
 
 </details>
 

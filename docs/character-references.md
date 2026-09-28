@@ -34,7 +34,7 @@
 
 README 使用 `assets/chiikawa-engineering.svg` 和深色版本 `chiikawa-engineering-dark.svg`。两者是 960×224 的原生动画 SVG：文字和线条保持矢量，角色使用内嵌的高分辨率 PNG 图集及完整半透明边缘。四秒循环由浏览器连续计算，使用平滑缓动；角色首尾位置一致，信号点在回到起点前完全淡出。
 
-图像处理、运行时接口与维护工具是主信息；八位角色以边角注解的方式出现。文件自包含，不需要外部图片、JavaScript 或前端运行服务。`picture` 按浏览器配色偏好选择主题。
+前端交互、AI Agent 与 AI 应用是主信息，对应 collabboard、OSS Maintainer Assistant 和 WenDao；八位角色以边角注解的方式出现。文件自包含，不需要外部图片、JavaScript 或前端运行服务。`picture` 按浏览器配色偏好选择主题。
 
 在仓库根目录生成两种主题，只需要 Python 标准库：
 
