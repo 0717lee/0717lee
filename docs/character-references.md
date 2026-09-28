@@ -32,14 +32,16 @@
 
 ## 当前主页：工程手记
 
-README 使用 `assets/chiikawa-engineering.png` 和深色版本 `chiikawa-engineering-dark.png`。两张文件都是四秒循环的无损 APNG：从同一个 960×224 场景以 3 倍像素密度渲染，实际尺寸为 2880×672，网页显示宽度仍为 960。文字和线条保留抗锯齿，角色保留完整的半透明边缘。`picture` 按浏览器配色偏好选择，不依赖 README 执行脚本或 CSS 动画。
+README 使用 `assets/chiikawa-engineering.svg` 和深色版本 `chiikawa-engineering-dark.svg`。两者是 960×224 的原生动画 SVG：文字和线条保持矢量，角色使用内嵌的高分辨率 PNG 图集及完整半透明边缘。四秒循环由浏览器连续计算，使用平滑缓动；角色首尾位置一致，信号点在回到起点前完全淡出。
 
-图像处理、运行时接口与维护工具是主信息；八位角色以边角注解的方式出现，保持原有外形，不遮挡工程标签。
+图像处理、运行时接口与维护工具是主信息；八位角色以边角注解的方式出现。文件自包含，不需要外部图片、JavaScript 或前端运行服务。`picture` 按浏览器配色偏好选择主题。
 
-在仓库根目录导出当前两种主题：
+在仓库根目录生成两种主题，只需要 Python 标准库：
 
 ```powershell
-python -B scripts/render_profile.py chiikawa-engineering chiikawa-engineering-dark --work-dir C:/path/outside-repo/engineering-render
+python -B scripts/render_profile.py
 ```
 
-生成需要 Python、Pillow 和 Playwright Chromium。中间 SVG、帧图和校验结果保存在 `--work-dir` 指定的仓库外目录。导出时检查尺寸、帧数、循环与时长，并逐帧验证解码后的 RGBA 与原始渲染完全一致，避免透明区域残影；最终两张 APNG 写入 `assets/`。APNG 的帧合成参数使用 [Pillow 文档](https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html#apng-sequences) 中的 `disposal=0`、`blend=0`。
+导出时检查角色数量、SVG 结构、动画节奏和内嵌资源。GitHub 发布验收应在 README 的 `picture/img` 中检查人物、深浅色与实际播放；直接打开 raw SVG 的文档安全上下文与作为图片加载不同。
+
+此实现已在真实 GitHub 页面测试普通及减少动态效果设置；保留动画是本主页的明确设计要求。

@@ -3,7 +3,7 @@ import base64
 from pathlib import Path
 
 ASSETS = [
-    {"name":name,"width":960,"height":224,"duration":4,"fps":10,"scale":3}
+    {"name":name,"width":960,"height":224,"duration":4}
     for name in ("chiikawa-engineering","chiikawa-engineering-dark")
 ]
 CROPS = [(24,180,400,440),(449,174,401,443),(855,102,377,520),
@@ -55,16 +55,16 @@ text {{ font-family: "Microsoft YaHei", sans-serif; fill: {ink}; }}
 .meta {{ font-family: "Consolas", monospace; font-size: 12px; letter-spacing: 1.4px; fill: {muted}; }}
 .label {{ font-size: 19px; font-weight: 600; }}
 .detail {{ font-size: 13px; fill: {muted}; }}
-.working {{ animation: work 4s steps(1,end) infinite; }}
-.working-late {{ animation: work 4s steps(1,end) -1s infinite; }}
-.reading-note {{ transform-box: fill-box; transform-origin: bottom center; animation: note 4s steps(1,end) infinite; }}
+.working {{ animation: work 4s ease-in-out infinite; }}
+.working-late {{ animation: work 4s ease-in-out -1s infinite; }}
+.reading-note {{ transform-box: fill-box; transform-origin: bottom center; animation: note 4s ease-in-out infinite; }}
 .floating-note {{ animation: float-note 4s ease-in-out infinite; }}
 .signal {{ animation: signal 4s linear infinite; }}
-.cursor {{ animation: cursor 4s steps(1,end) infinite; }}
+.cursor {{ animation: cursor 4s ease-in-out infinite; }}
 @keyframes work {{ 0%,100% {{ transform: translateY(0); }} 50% {{ transform: translateY(-2px); }} }}
 @keyframes note {{ 0%,100% {{ transform: rotate(0); }} 50% {{ transform: rotate(-2deg); }} }}
 @keyframes float-note {{ 0%,100% {{ transform: translateY(0); }} 50% {{ transform: translateY(-4px); }} }}
-@keyframes signal {{ 0% {{ transform: translateX(0); opacity: 0; }} 10%,80% {{ opacity: 1; }} 100% {{ transform: translateX(47px); opacity: 0; }} }}
+@keyframes signal {{ 0% {{ transform: translateX(0); opacity: 0; }} 15%,75% {{ opacity: 1; }} 90%,100% {{ opacity: 0; }} 100% {{ transform: translateX(47px); }} }}
 @keyframes cursor {{ 0%,100% {{ opacity: 1; }} 50% {{ opacity: 0; }} }}
 </style>
 <text class="meta" x="28" y="26">ENGINEERING NOTES</text>
