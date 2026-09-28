@@ -6,8 +6,8 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/chiikawa-engineering-dark.gif" />
-    <img src="./assets/chiikawa-engineering.gif" width="960" alt="图像处理、运行时接口、维护工具三个工程方向的动态示意，八位 Chiikawa 角色作为边角注解。" />
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/chiikawa-engineering-dark.png" />
+    <img src="./assets/chiikawa-engineering.png" width="960" alt="图像处理、运行时接口、维护工具三个工程方向的动态示意，八位 Chiikawa 角色作为边角注解。" />
   </picture>
 </p>
 

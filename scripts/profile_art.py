@@ -3,8 +3,7 @@ import base64
 from pathlib import Path
 
 ASSETS = [
-    {"name":name,"width":960,"height":224,"duration":4,"fps":10,
-     "transparent":True,"palette_colors":192}
+    {"name":name,"width":960,"height":224,"duration":4,"fps":10,"scale":3}
     for name in ("chiikawa-engineering","chiikawa-engineering-dark")
 ]
 CROPS = [(24,180,400,440),(449,174,401,443),(855,102,377,520),

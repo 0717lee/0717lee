@@ -1,16 +1,10 @@
-"""Render checked, looping GIFs with each asset's transparency and palette settings.
-
-Asset specs may set transparent=False for opaque, delta-encoded GIFs and
-palette_colors=2..256; defaults are transparent=True and palette_colors=128.
-"""
+"""Render lossless, looping APNGs at each asset's declared pixel scale."""
 
 import argparse
 import json
-import shutil
-import subprocess
 from pathlib import Path
 
-from PIL import Image, ImageSequence
+from PIL import Image
 from playwright.sync_api import Browser, sync_playwright
 
 from profile_art import ASSETS, render_svg
@@ -20,15 +14,14 @@ REPO = Path(__file__).resolve().parents[1]
 ATLAS = REPO / "assets" / "chiikawa-sprites.png"
 
 
-def render_asset(browser: Browser, spec: dict, work_dir: Path, ffmpeg: str) -> dict:
+def render_asset(browser: Browser, spec: dict, work_dir: Path) -> dict:
     name = spec["name"]
     width, height = spec["width"], spec["height"]
     fps = spec["fps"]
-    transparent = spec.get("transparent", True)
-    palette_colors = spec.get("palette_colors", 128)
-    if not 2 <= palette_colors <= 256:
-        raise ValueError(f"{name}: palette_colors must be between 2 and 256")
+    scale = spec["scale"]
+    expected_size = (width * scale, height * scale)
     frame_count = round(spec["duration"] * fps)
+    frame_duration_ms = 1000 / fps
     asset_work_dir = work_dir / name
     asset_work_dir.mkdir(parents=True, exist_ok=True)
     source = asset_work_dir / "source.svg"
@@ -36,9 +29,10 @@ def render_asset(browser: Browser, spec: dict, work_dir: Path, ffmpeg: str) -> d
 
     page = browser.new_page(
         viewport={"width": width, "height": height},
-        device_scale_factor=1,
+        device_scale_factor=scale,
         reduced_motion="no-preference",
     )
+    source_frames = []
     try:
         page.goto(source.as_uri(), wait_until="load")
         page.evaluate("() => document.fonts.ready")
@@ -59,96 +53,98 @@ def render_asset(browser: Browser, spec: dict, work_dir: Path, ffmpeg: str) -> d
                 }""",
                 frame * 1000 / fps,
             )
+            frame_path = asset_work_dir / f"frame_{frame:05d}.png"
             page.screenshot(
-                path=str(asset_work_dir / f"frame_{frame:05d}.png"),
+                path=str(frame_path),
                 animations="allow",
-                omit_background=transparent,
-                scale="css",
+                omit_background=True,
+                scale="device",
             )
+            with Image.open(frame_path) as captured:
+                source_frames.append(captured.convert("RGBA"))
     finally:
         page.close()
 
-    output = REPO / "assets" / f"{name}.gif"
-    # Opaque GIFs also need a transparent palette entry for unchanged delta pixels.
-    subprocess.run(
-        [
-            ffmpeg,
-            "-hide_banner",
-            "-loglevel", "error",
-            "-y",
-            "-framerate", str(fps),
-            "-start_number", "0",
-            "-t", str(spec["duration"]),
-            "-i", str(asset_work_dir / "frame_%05d.png"),
-            "-filter_complex",
-            "[0:v]split[frames][colors];"
-            f"[colors]palettegen=max_colors={palette_colors}:stats_mode=diff:"
-            "reserve_transparent=1[palette];"
-            "[frames][palette]paletteuse=dither=bayer:bayer_scale=5:"
-            "diff_mode=rectangle:alpha_threshold=128",
-            "-frames:v", str(frame_count),
-            *(["-gifflags", "-offsetting-transdiff"] if transparent else []),
-            "-loop", "0",
-            str(output),
-        ],
-        check=True,
+    output = REPO / "assets" / f"{name}.png"
+    source_frames[0].save(
+        output,
+        format="PNG",
+        save_all=True,
+        append_images=source_frames[1:],
+        duration=frame_duration_ms,
+        loop=0,
+        disposal=0,
+        blend=0,
+        optimize=True,
+        compress_level=9,
     )
 
-    with Image.open(output) as gif:
-        actual_size = gif.size
-        frames = gif.n_frames
-        loop = gif.info.get("loop")
+    with Image.open(output) as animation:
+        if animation.format != "PNG" or not animation.is_animated:
+            raise ValueError(f"{name}: expected an animated PNG")
+        actual_size = animation.size
+        frames = animation.n_frames
+        loop = animation.info.get("loop")
+        if actual_size != expected_size:
+            raise ValueError(f"{name}: expected {expected_size}, got {actual_size}")
+        if frames != frame_count:
+            raise ValueError(f"{name}: expected {frame_count} frames, got {frames}")
         duration_ms = 0
         transparent_frames = 0
-        opaque_frames = 0
-        disposal_methods = set()
-        for frame in ImageSequence.Iterator(gif):
-            duration_ms += frame.info.get("duration", 0)
-            disposal_methods.add(frame.disposal_method)
-            alpha_min = frame.convert("RGBA").getchannel("A").getextrema()[0]
-            if alpha_min == 0:
+        soft_alpha_frames = 0
+        disposal_ops = set()
+        blend_ops = set()
+        for index, source_frame in enumerate(source_frames):
+            animation.seek(index)
+            decoded = animation.convert("RGBA")
+            if decoded.tobytes() != source_frame.tobytes():
+                raise ValueError(f"{name}: frame {index} differs from the source RGBA")
+            duration_ms += animation.info.get("duration", 0)
+            disposal_ops.add(animation.info.get("disposal"))
+            blend_ops.add(animation.info.get("blend"))
+            alpha_histogram = decoded.getchannel("A").histogram()
+            if alpha_histogram[0]:
                 transparent_frames += 1
-            elif alpha_min == 255:
-                opaque_frames += 1
+            if sum(alpha_histogram[1:255]):
+                soft_alpha_frames += 1
     expected_ms = spec["duration"] * 1000
-    if actual_size != (width, height):
-        raise ValueError(f"{name}: expected {width}x{height}, got {actual_size}")
-    if frames <= 1:
-        raise ValueError(f"{name}: expected animation, got {frames} frame")
     if loop != 0:
         raise ValueError(f"{name}: expected infinite looping, got loop={loop}")
-    if transparent:
-        if transparent_frames != frames:
-            raise ValueError(f"{name}: {frames - transparent_frames} frames lost transparency")
-        if disposal_methods != {2}:
-            raise ValueError(f"{name}: expected background disposal 2, got {disposal_methods}")
-    elif opaque_frames != frames:
-        raise ValueError(f"{name}: {frames - opaque_frames} frames are not fully opaque")
-    if abs(duration_ms - expected_ms) > 50:
+    if transparent_frames != frames or soft_alpha_frames != frames:
+        raise ValueError(f"{name}: every frame must preserve transparency and soft alpha")
+    if disposal_ops != {0} or blend_ops != {0}:
+        raise ValueError(f"{name}: expected APNG disposal 0 and source blend 0")
+    if abs(duration_ms - expected_ms) > 1:
         raise ValueError(
             f"{name}: expected {expected_ms} ms, got {duration_ms} ms"
         )
+    for source_frame in source_frames:
+        source_frame.close()
 
     result = {
         "name": name,
-        "width": width,
-        "height": height,
+        "format": "APNG",
+        "width": actual_size[0],
+        "height": actual_size[1],
+        "css_width": width,
+        "css_height": height,
+        "scale": scale,
         "frames": frames,
         "source_frames": frame_count,
         "fps": fps,
         "duration_ms": duration_ms,
         "expected_duration_ms": expected_ms,
         "loop": loop,
-        "transparent": transparent,
-        "palette_colors": palette_colors,
+        "exact_source_frames": frames,
         "transparent_frames": transparent_frames,
-        "opaque_frames": opaque_frames,
-        "disposal_methods": sorted(disposal_methods),
+        "soft_alpha_frames": soft_alpha_frames,
+        "disposal_ops": sorted(disposal_ops),
+        "blend_ops": sorted(blend_ops),
         "bytes": output.stat().st_size,
         "output": str(output),
     }
     print(
-        f"{name}: {width}x{height}, {frames} frames, {duration_ms} ms, "
+        f"{name}: {actual_size[0]}x{actual_size[1]} APNG, {frames} frames, {duration_ms} ms, "
         f"loop={loop}, {result['bytes']} bytes",
         flush=True,
     )
@@ -173,9 +169,6 @@ def main() -> None:
         parser.error("--work-dir must be outside the repository")
     if not ATLAS.is_file():
         parser.error(f"Sprite atlas does not exist: {ATLAS}")
-    ffmpeg = shutil.which("ffmpeg")
-    if ffmpeg is None:
-        parser.error("ffmpeg is not available on PATH")
     work_dir.mkdir(parents=True, exist_ok=True)
 
     results = []
@@ -183,7 +176,7 @@ def main() -> None:
         browser = playwright.chromium.launch(headless=True)
         try:
             for name in names:
-                results.append(render_asset(browser, specs[name], work_dir, ffmpeg))
+                results.append(render_asset(browser, specs[name], work_dir))
         finally:
             browser.close()
     (work_dir / "render-checks.json").write_text(

@@ -32,7 +32,9 @@
 
 ## 当前主页：工程手记
 
-README 使用 `assets/chiikawa-engineering.gif` 和深色版本 `chiikawa-engineering-dark.gif`，由同一个 960×224 场景生成。图像处理、运行时接口与维护工具是主信息；八位角色以边角注解的方式出现，保持原有外形，不遮挡工程标签。两种主题都是四秒循环 GIF，`picture` 按浏览器配色偏好选择，不依赖 README 执行脚本或 CSS 动画。
+README 使用 `assets/chiikawa-engineering.png` 和深色版本 `chiikawa-engineering-dark.png`。两张文件都是四秒循环的无损 APNG：从同一个 960×224 场景以 3 倍像素密度渲染，实际尺寸为 2880×672，网页显示宽度仍为 960。文字和线条保留抗锯齿，角色保留完整的半透明边缘。`picture` 按浏览器配色偏好选择，不依赖 README 执行脚本或 CSS 动画。
+
+图像处理、运行时接口与维护工具是主信息；八位角色以边角注解的方式出现，保持原有外形，不遮挡工程标签。
 
 在仓库根目录导出当前两种主题：
 
@@ -40,4 +42,4 @@ README 使用 `assets/chiikawa-engineering.gif` 和深色版本 `chiikawa-engine
 python -B scripts/render_profile.py chiikawa-engineering chiikawa-engineering-dark --work-dir C:/path/outside-repo/engineering-render
 ```
 
-生成需要 Python、Pillow、Playwright Chromium 和 FFmpeg。中间 SVG、帧图和校验结果保存在 `--work-dir` 指定的仓库外目录。导出时检查尺寸、帧数、循环、时长和透明处理；最终两张 GIF 写入 `assets/`。
+生成需要 Python、Pillow 和 Playwright Chromium。中间 SVG、帧图和校验结果保存在 `--work-dir` 指定的仓库外目录。导出时检查尺寸、帧数、循环与时长，并逐帧验证解码后的 RGBA 与原始渲染完全一致，避免透明区域残影；最终两张 APNG 写入 `assets/`。APNG 的帧合成参数使用 [Pillow 文档](https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html#apng-sequences) 中的 `disposal=0`、`blend=0`。
