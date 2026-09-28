@@ -3,7 +3,7 @@ import argparse
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
-from profile_art import ASSETS, CAST, render_svg
+from profile_art import ASSET_NAMES, CAST, render_svg
 
 REPO = Path(__file__).resolve().parents[1]
 ATLAS = REPO / "assets" / "chiikawa-sprites.png"
@@ -37,9 +37,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("assets", nargs="*", help="Asset names; defaults to both themes")
     args = parser.parse_args()
-    known = {spec["name"] for spec in ASSETS}
-    names = list(dict.fromkeys(args.assets)) if args.assets else [s["name"] for s in ASSETS]
-    unknown = [name for name in names if name not in known]
+    names = list(dict.fromkeys(args.assets)) if args.assets else ASSET_NAMES
+    unknown = [name for name in names if name not in ASSET_NAMES]
     if unknown:
         parser.error(f"Unknown assets: {', '.join(unknown)}")
     for name in names:

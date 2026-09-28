@@ -2,22 +2,20 @@
 import base64
 from pathlib import Path
 
-ASSETS = [
-    {"name":name,"width":960,"height":224,"duration":4}
-    for name in ("chiikawa-engineering","chiikawa-engineering-dark")
-]
-CROPS = [(24,180,400,440),(449,174,401,443),(855,102,377,520),
-         (26,800,380,359),(403,735,465,423),(866,630,374,524),
-         (6,184,458,468),(466,190,364,465),(924,97,782,746),
-         (48,73,814,786),(440,738,420,430)]
+ASSET_NAMES = ("chiikawa-engineering", "chiikawa-engineering-dark")
+CROPS = {
+    0:(24,180,400,440), 1:(449,174,401,443), 2:(855,102,377,520),
+    6:(6,184,458,468), 7:(466,190,364,465), 8:(924,97,782,746),
+    9:(48,73,814,786), 10:(440,738,420,430),
+}
 CAST = [(0,"吉伊"),(1,"小八"),(2,"乌萨奇"),(6,"飞鼠"),
         (7,"古本屋"),(8,"狮萨"),(9,"师傅"),(10,"栗子馒头")]
 # Align perceived character size rather than including ears, tails or capes.
-FACE_WIDTH = {0:280,1:285,2:260,3:245,4:210,5:250,6:305,7:285,8:590,9:605,10:315}
-FEET = {0:584,1:591,2:593,3:1120,4:1133,5:1135,6:632,7:635,8:831,9:847,10:1147}
+FACE_WIDTH = {0:280,1:285,2:260,6:305,7:285,8:590,9:605,10:315}
+FEET = {0:584,1:591,2:593,6:632,7:635,8:831,9:847,10:1147}
 
 
-def sprite(index,center_x,baseline,face_width,motion="breathe"):
+def sprite(index,center_x,baseline,face_width,motion):
     cx,cy,cw,ch = CROPS[index]
     scale = face_width / FACE_WIDTH[index]
     w,h = cw * scale,ch * scale
@@ -93,7 +91,7 @@ text {{ font-family: "Microsoft YaHei", sans-serif; fill: {ink}; }}
 
 
 def render_svg(name: str, atlas_path: Path) -> str:
-    if name not in {item["name"] for item in ASSETS}:
+    if name not in ASSET_NAMES:
         raise ValueError(f"Unknown asset: {name}")
     images = [
         ("atlas",atlas_path,1254,1254),
@@ -104,5 +102,5 @@ def render_svg(name: str, atlas_path: Path) -> str:
         f'<image id="{id_}" width="{w}" height="{h}" href="data:image/png;base64,{base64.b64encode(path.read_bytes()).decode("ascii")}"/>'
         for id_,path,w,h in images
     )
-    clips = "".join(f'<clipPath id="crop-{i}"><rect x="{x}" y="{y}" width="{w}" height="{h}"/></clipPath>' for i,(x,y,w,h) in enumerate(CROPS))
+    clips = "".join(f'<clipPath id="crop-{i}"><rect x="{x}" y="{y}" width="{w}" height="{h}"/></clipPath>' for i,(x,y,w,h) in CROPS.items())
     return engineering(name, definitions, clips)
