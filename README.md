@@ -44,19 +44,23 @@ AI 古籍阅读平台：React 对照阅读器支持渐进加载、同步滚动�
 
 ## 开源贡献
 
-以下记录均为已合入的上游改动：
+以下记录均为已合入的上游改动，共 33 个 PR：
 
 <details>
-<summary>查看 6 条已合入记录</summary>
+<summary>查看 8 个项目的已合入记录</summary>
 
-| 项目 | 改动 |
-| :-- | :-- |
-| [ContextForge Web UI #106](https://github.com/contextforge-org/contextforge-web-ui/pull/106) | MCP 管理界面：区分组件加载失败与空列表，提供重试 |
-| [nanobot #5602](https://github.com/HKUDS/nanobot/pull/5602) | Agent WebUI：增加回合完成提示音 |
-| [DeerFlow #5453](https://github.com/bytedance/deer-flow/pull/5453) | Agent 运行时：保留内存模式下的运行历史 |
-| [OpenSeek #1132](https://github.com/moonbitlang/openseek/pull/1132) | 桌面浏览器：修复标签复用时地址与页面脱节 |
-| [MoonBit Core #4181](https://github.com/moonbitlang/core/pull/4181) | 标准库文档与可执行示例 |
-| [Proton #300](https://github.com/moonbit-community/proton/pull/300) | Windows 高 DPI 窗口过渡的回归测试 |
+| 项目 | 已合入 | 改动 |
+| :-- | :-: | :-- |
+| [Rivus Product](https://github.com/rivusglobal/rivus-product) | 19 | Agent 交易平台：订阅档位与真实额度、API/MCP 可观测性面板、研究与首页 dashboard、移动端与聊天体验 |
+| [MoonBit Rabbita](https://github.com/moonbit-community/rabbita/pull/218) | 4 | DOM：SVG 集合绑定、可变集合接口、媒体轨道与 TimeRanges 查询；JS：拒绝 undefined 的序列化结果 |
+| [MoonBit Core](https://github.com/moonbitlang/core/pull/4181) | 3 | 标准库 builtin 文档与可执行示例 |
+| [OpenSeek](https://github.com/moonbitlang/openseek/pull/1132) | 2 | 桌面端：浏览器标签复用时重新导航、项目侧栏拖拽调宽 |
+| [ContextForge Web UI](https://github.com/contextforge-org/contextforge-web-ui/pull/106) | 2 | MCP 管理界面：区分组件加载失败与空列表、移除工具预览的重复参数 |
+| [nanobot](https://github.com/HKUDS/nanobot/pull/5602) | 1 | Agent WebUI：回合完成提示音 |
+| [DeerFlow](https://github.com/bytedance/deer-flow/pull/5453) | 1 | Agent 运行时：保留内存模式下的运行历史 |
+| [Proton](https://github.com/moonbit-community/proton/pull/300) | 1 | Windows 高 DPI 窗口过渡的回归测试 |
+
+Rivus Product 另有部分工作由维护者在拆分后的 PR 中提交并署名 Credit: 0717lee（[#998](https://github.com/rivusglobal/rivus-product/pull/998)、[#999](https://github.com/rivusglobal/rivus-product/pull/999)、[#1006](https://github.com/rivusglobal/rivus-product/pull/1006)、[#1008](https://github.com/rivusglobal/rivus-product/pull/1008)、[#1009](https://github.com/rivusglobal/rivus-product/pull/1009)）。
 
 </details>
 
