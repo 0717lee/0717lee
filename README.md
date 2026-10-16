@@ -44,17 +44,16 @@ AI 古籍阅读平台：React 对照阅读器支持渐进加载、同步滚动�
 
 ## 开源贡献
 
-已合入上游的改动，共 33 个 PR：
+已合入公开上游的改动，共 14 个 PR：
 
 | 项目 | 已合入 | 改动 |
 | :-- | :-: | :-- |
-| [Rivus Product](https://github.com/rivusglobal/rivus-product) | 19 | Agent 交易平台：额度与账单、可观测性面板、研究与首页 dashboard |
 | [MoonBit Rabbita](https://github.com/moonbit-community/rabbita/pull/218) | 4 | Web UI 框架的 DOM 集合与媒体查询 API |
 | [MoonBit Core](https://github.com/moonbitlang/core/pull/4181) | 3 | 标准库 builtin 文档与可执行示例 |
 | [OpenSeek](https://github.com/moonbitlang/openseek/pull/1132) | 2 | 桌面端浏览器标签复用与侧栏拖拽 |
 | [ContextForge Web UI](https://github.com/contextforge-org/contextforge-web-ui/pull/106) | 2 | MCP 管理界面的加载失败提示与参数展示 |
 
-另有 nanobot、DeerFlow、Proton 各 1 个 PR：回合完成提示音、内存模式运行历史、Windows 高 DPI 回归测试。Rivus Product 另有部分工作由维护者拆分后自行提交并署名 Credit: 0717lee。
+另有 nanobot、DeerFlow、Proton 各 1 个 PR：回合完成提示音、内存模式运行历史、Windows 高 DPI 回归测试。
 
 [全部合入记录](https://github.com/search?q=is%3Apr+author%3A0717lee+is%3Amerged&type=pullrequests) · [正在推进的 PR](https://github.com/search?q=is%3Apr+author%3A0717lee+is%3Aopen&type=pullrequests)
 
