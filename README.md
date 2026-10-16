@@ -44,25 +44,17 @@ AI 古籍阅读平台：React 对照阅读器支持渐进加载、同步滚动�
 
 ## 开源贡献
 
-以下记录均为已合入的上游改动，共 33 个 PR：
-
-<details>
-<summary>查看 8 个项目的已合入记录</summary>
+已合入上游的改动，共 33 个 PR：
 
 | 项目 | 已合入 | 改动 |
 | :-- | :-: | :-- |
-| [Rivus Product](https://github.com/rivusglobal/rivus-product) | 19 | Agent 交易平台：订阅档位与真实额度、API/MCP 可观测性面板、研究与首页 dashboard、移动端与聊天体验 |
-| [MoonBit Rabbita](https://github.com/moonbit-community/rabbita/pull/218) | 4 | DOM：SVG 集合绑定、可变集合接口、媒体轨道与 TimeRanges 查询；JS：拒绝 undefined 的序列化结果 |
+| [Rivus Product](https://github.com/rivusglobal/rivus-product) | 19 | Agent 交易平台：额度与账单、可观测性面板、研究与首页 dashboard |
+| [MoonBit Rabbita](https://github.com/moonbit-community/rabbita/pull/218) | 4 | Web UI 框架的 DOM 集合与媒体查询 API |
 | [MoonBit Core](https://github.com/moonbitlang/core/pull/4181) | 3 | 标准库 builtin 文档与可执行示例 |
-| [OpenSeek](https://github.com/moonbitlang/openseek/pull/1132) | 2 | 桌面端：浏览器标签复用时重新导航、项目侧栏拖拽调宽 |
-| [ContextForge Web UI](https://github.com/contextforge-org/contextforge-web-ui/pull/106) | 2 | MCP 管理界面：区分组件加载失败与空列表、移除工具预览的重复参数 |
-| [nanobot](https://github.com/HKUDS/nanobot/pull/5602) | 1 | Agent WebUI：回合完成提示音 |
-| [DeerFlow](https://github.com/bytedance/deer-flow/pull/5453) | 1 | Agent 运行时：保留内存模式下的运行历史 |
-| [Proton](https://github.com/moonbit-community/proton/pull/300) | 1 | Windows 高 DPI 窗口过渡的回归测试 |
+| [OpenSeek](https://github.com/moonbitlang/openseek/pull/1132) | 2 | 桌面端浏览器标签复用与侧栏拖拽 |
+| [ContextForge Web UI](https://github.com/contextforge-org/contextforge-web-ui/pull/106) | 2 | MCP 管理界面的加载失败提示与参数展示 |
 
-Rivus Product 另有部分工作由维护者在拆分后的 PR 中提交并署名 Credit: 0717lee（[#998](https://github.com/rivusglobal/rivus-product/pull/998)、[#999](https://github.com/rivusglobal/rivus-product/pull/999)、[#1006](https://github.com/rivusglobal/rivus-product/pull/1006)、[#1008](https://github.com/rivusglobal/rivus-product/pull/1008)、[#1009](https://github.com/rivusglobal/rivus-product/pull/1009)）。
-
-</details>
+另有 nanobot、DeerFlow、Proton 各 1 个 PR：回合完成提示音、内存模式运行历史、Windows 高 DPI 回归测试。Rivus Product 另有部分工作由维护者拆分后自行提交并署名 Credit: 0717lee。
 
 [全部合入记录](https://github.com/search?q=is%3Apr+author%3A0717lee+is%3Amerged&type=pullrequests) · [正在推进的 PR](https://github.com/search?q=is%3Apr+author%3A0717lee+is%3Aopen&type=pullrequests)
 
